@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>S3Scan Web Interface</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+</head>
+
+<body>
+
+<script>
+    window.onload = function () {
+        console.log('inside');
+        var socket = io.connect('http://' + document.domain + ':' + location.port + '/test');
+        socket.emit('url', {url: 'https://l-a.me/test.html'});
+        socket.on('data', function (msg) {
+            console.log(msg);
+        });
+    };
+
+</script>
+</body>
+</html>
